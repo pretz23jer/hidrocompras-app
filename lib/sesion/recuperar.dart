@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:hidroapp/sesion/recuperar.dart';
 
-class MyAppForm extends StatefulWidget {
-  MyAppForm();
-
-  @override
-  _MyAppFormState createState() => _MyAppFormState();
-}
-
-class _MyAppFormState extends State<MyAppForm> {
+class RecuperarContrasenia extends StatelessWidget {
   String? _email;
-  String? _pasword;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 242, 240, 241),
+      appBar: AppBar(
+        title: Text('Recuperar Contraseña'),
+      ),
       body: ListView(
         padding: EdgeInsets.symmetric(
           horizontal: 30.0,
-          vertical: 90.0,
+          vertical: 30.0,
         ),
         children: <Widget>[
           Column(
@@ -30,17 +23,35 @@ class _MyAppFormState extends State<MyAppForm> {
                 backgroundColor: Color.fromARGB(255, 255, 255, 255),
                 backgroundImage: AssetImage('images/hidroa.png'),
               ),
-              Text(
-                'Iniciar Sesión',
-                style: TextStyle(
-                  fontSize: 30.0,
-                ),
-              ),
               SizedBox(
                 width: 160.0,
                 height: 15.0,
                 child: Divider(
                   color: Colors.blue,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  '¿Haz olvidado tu contraseña?',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 20, 20, 20),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  'Ingrese la dirección de correo',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 20, 20, 20),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
               TextField(
@@ -59,23 +70,6 @@ class _MyAppFormState extends State<MyAppForm> {
                 },
               ),
               Divider(
-                height: 18.0,
-              ),
-              TextField(
-                enableInteractiveSelection: false,
-                obscureText: true,
-                decoration: InputDecoration(
-                    hintText: 'Contraseña',
-                    labelText: 'Contraseña',
-                    suffixIcon: Icon(Icons.lock_outline),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0))),
-                onSubmitted: (valor) {
-                  _pasword = valor;
-                  print('La contraseña es $_pasword');
-                },
-              ),
-              Divider(
                 height: 15.0,
               ),
               SizedBox(
@@ -83,10 +77,10 @@ class _MyAppFormState extends State<MyAppForm> {
                 height: 40.0,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/five');
+                    Navigator.of(context).pushNamed('/four');
                   },
                   child: Text(
-                    'Ingresar',
+                    'Continuar',
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255),
                       fontSize: 20.0,
@@ -96,24 +90,6 @@ class _MyAppFormState extends State<MyAppForm> {
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
                         Color.fromARGB(255, 0, 18, 121)),
-                  ),
-                ),
-              ),
-              Divider(
-                height: 15.0,
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/tree');
-                  },
-                  child: Text(
-                    '¿Has olvidado tu contraseña? Recuperar',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontSize: 15.0,
-                    ),
                   ),
                 ),
               ),
