@@ -7,7 +7,7 @@ class Usuario extends StatelessWidget {
       appBar: AppBar(
         title: Text('José Gonzáles'),
       ),
-      body: ListView(),
+      body: Center(),
     );
   }
 }
