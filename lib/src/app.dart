@@ -117,6 +117,25 @@ class _MyAppFormState extends State<MyAppForm> {
                   ),
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.all(30.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/seven');
+                    },
+                    child: Text(
+                      'Regístrate',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 26, 82),
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              )
             ],
           )
         ],

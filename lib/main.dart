@@ -5,6 +5,10 @@ import 'package:hidroapp/sesion/recuperar.dart';
 import 'package:hidroapp/sesion/nuevapasword.dart';
 import 'package:hidroapp/principal.dart';
 import 'package:hidroapp/usuario/user.dart';
+import 'package:hidroapp/usuario/nuevo.dart';
+import 'package:hidroapp/usuario/politicas.dart';
+import 'package:hidroapp/usuario/condiciones.dart';
+import 'package:hidroapp/src/mensajes.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,6 +25,10 @@ class MyApp extends StatelessWidget {
         '/four': (context) => NewContrasenia(),
         '/five': (context) => Principal(),
         '/six': (context) => Usuario(),
+        '/seven': (context) => NuevoUsuario(),
+        '/eigth': (context) => PoliticasPrivacidad(),
+        '/nine': (context) => Condiciones(),
+        '/ten': (context) => Mensajes(),
       },
       initialRoute: '/one',
     );
