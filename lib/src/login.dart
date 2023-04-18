@@ -96,8 +96,8 @@ class _LoginageState extends State<MyAppForm> {
                     print('El usuario es $_usuario');
                   },
                 ),
-                Divider(
-                  height: 18.0,
+                const SizedBox(
+                  height: 15.0,
                 ),
                 /*seccion contraseña*/
                 /*activar y desactivar la visuzalizaicón de la contraseñña*/
@@ -134,33 +134,36 @@ class _LoginageState extends State<MyAppForm> {
                             ))),
                   ),
                 ),
-                Divider(
+                const SizedBox(
                   height: 15.0,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  height: 40.0,
-                  child: ElevatedButton(
-                    onPressed: () {
+                Material(
+                  color: Color.fromARGB(255, 0, 18, 121),
+                  borderRadius: BorderRadius.circular(30),
+                  child: InkWell(
+                    onTap: () {
                       //_login();
                       //Navigator.pop(context);
                       Navigator.of(context).pushNamed('/five');
                     },
-                    child: Text(
-                      'Ingresar',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontSize: 20.0,
+                    borderRadius: BorderRadius.circular(30),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 28,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          Color.fromARGB(255, 0, 18, 121)),
+                      child: Text(
+                        'Ingresar',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontSize: 20.0,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
-                Divider(
+                const SizedBox(
                   height: 15.0,
                 ),
                 SizedBox(
