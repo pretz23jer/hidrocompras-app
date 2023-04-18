@@ -1,9 +1,19 @@
+import 'dart:convert';
+
+import 'package:hidroapp/src/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:hidroapp/api_conection/api_conexion.dart';
 import 'package:get/get.dart';
-import 'package:hidroapp/src/login.dart';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
-class NuevoUsuario extends StatelessWidget {
+class NuevoUsuario extends StatefulWidget {
+  @override
+  State<NuevoUsuario> createState() => _NuevoUsuarioApp();
+}
+
+class _NuevoUsuarioApp extends State<NuevoUsuario> {
   String? nombre, apellido, telefono, correo, password;
   var formkey = GlobalKey<FormState>();
 
@@ -13,8 +23,26 @@ class NuevoUsuario extends StatelessWidget {
   var telefonoController = TextEditingController();
   var paswordController = TextEditingController();
   var OcultarPass = true.obs;
-
-  validarCorreo() {}
+//seccion validar correo electronico registrado
+  validarCorreo() async {
+    try {
+      var respuesta = await http.post(
+        Uri.parse(API.validarUsuario),
+        body: {
+          'correo': emailController.text.trim(),
+        },
+      );
+      //Desde la aplicación Flutter la conexión con la API
+      if (respuesta.statusCode == 200) {
+        var respuestaBody = jsonDecode(respuesta.body);
+        if (respuestaBody['Existe'] == true) {
+          Fluttertoast.showToast(
+              msg:
+                  "El correo electrónico ya está en uso. Prueba con otro correo.");
+        }
+      }
+    } catch (e) {}
+  }
 
   @override
   Widget build(BuildContext context) {
