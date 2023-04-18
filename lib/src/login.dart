@@ -16,7 +16,6 @@ class MyAppForm extends StatefulWidget {
 
 class _LoginageState extends State<MyAppForm> {
   String? _usuario;
-  String? _contrasenia;
 
   TextEditingController controllerUser = new TextEditingController();
   TextEditingController controllerPass = new TextEditingController();
@@ -58,6 +57,7 @@ class _LoginageState extends State<MyAppForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
+        key: formkey,
         child: Container(
             padding: EdgeInsets.all(30.0),
             child: Column(
@@ -71,7 +71,8 @@ class _LoginageState extends State<MyAppForm> {
                 Text(
                   'Iniciar Sesión',
                   style: TextStyle(
-                    fontSize: 30.0,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
@@ -137,6 +138,7 @@ class _LoginageState extends State<MyAppForm> {
                 const SizedBox(
                   height: 15.0,
                 ),
+                //boton para ingresar a la app
                 Material(
                   color: Color.fromARGB(255, 0, 18, 121),
                   borderRadius: BorderRadius.circular(30),
@@ -147,7 +149,7 @@ class _LoginageState extends State<MyAppForm> {
                       Navigator.of(context).pushNamed('/five');
                     },
                     borderRadius: BorderRadius.circular(30),
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.symmetric(
                         vertical: 10,
                         horizontal: 28,
@@ -176,13 +178,13 @@ class _LoginageState extends State<MyAppForm> {
                       '¿Has olvidado tu contraseña? Recuperar',
                       style: TextStyle(
                         color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 15.0,
+                        fontSize: 13.0,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(30.0),
+                  padding: EdgeInsets.all(20),
                   child: SizedBox(
                     width: double.infinity,
                     child: TextButton(
