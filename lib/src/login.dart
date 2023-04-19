@@ -26,32 +26,6 @@ class _LoginageState extends State<MyAppForm> {
   var OcultarPass = true.obs;
 
   String mensaje = '';
-/*
-  Future<List> _login() async {
-    final result = await http
-        .post("http://192.168.1.22/apps/hidrocompras-app/login.php", body: {
-      "usuario": controllerUser.text,
-      "contrasenia": controllerPass.text,
-    });
-  }
-
-  var datauser = json.decode(result.body);
-
-  if ( datauser.length == 0 ){
-    setState(() {
-      mensaje = "usuario o contraseña incorrectas";
-    });
-  } else {
-    if (datauser[0]['rol']=='plomero'){
-      Navigator.pushReplacementNamed(context, '/five');
-    }
-
-    setState(() {
-      usuario = datauser[0]['usuario'];
-    });
-    return datauser;
-  }
-*/
 
   @override
   Widget build(BuildContext context) {

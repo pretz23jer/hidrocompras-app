@@ -1,11 +1,13 @@
 class API {
   //direccion donde se encuentra la api conexion ↓↓↓
   static const hostConnect = "http://192.168.1.9/api_plomero";
-  static const hostConnectUser = "hostConnect/usuario";
+  static const hostConnectUser = "http://192.168.1.9/api_plomero/usuario";
 
   //registro de nuevo usuario
-  static const crearUsuario = "hostConnect/usuario/crear_usuario.php";
+  static const crearUsuario =
+      "http://192.168.1.9/api_plomero/usuario/crear_usuario.php";
 
   //validar si ya existe el correo electrónico
-  static const validarUsuario = "hostConnect/usuario/validar_correo.php";
+  static const validarCorreoUsuario =
+      "http://192.168.1.9/api_plomero/usuario/validar_correo.php";
 }
