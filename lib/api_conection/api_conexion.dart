@@ -10,4 +10,8 @@ class API {
   //validar si ya existe el correo electrónico
   static const validarCorreoUsuario =
       "http://192.168.1.9/api_plomero/usuario/validar_correo.php";
+
+  //api para iniciar sesión por medio de la app
+  static const loginUsuario =
+      "http://192.168.1.9/api_plomero/usuario/login.php";
 }

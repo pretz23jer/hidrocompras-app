@@ -86,6 +86,14 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                   type: ArtSweetAlertType.success,
                   title: "Excelente!",
                   text: "Registro Exitoso"));
+
+          setState(() {
+            nombreController.clear();
+            apellidoController.clear();
+            emailController.clear();
+            telefonoController.clear();
+            passwordController.clear();
+          });
         } else {
           ArtSweetAlert.show(
               context: context,

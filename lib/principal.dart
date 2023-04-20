@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(Principal());
+//void main() => runApp(Principal());
 
 class Principal extends StatefulWidget {
   @override
