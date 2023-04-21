@@ -14,4 +14,12 @@ class API {
   //api para iniciar sesión por medio de la app
   static const loginUsuario =
       "http://192.168.1.9/api_plomero/usuario/login.php";
+
+  //api para validar si existe registro este correo para recuperar
+  static const validarCorreoRegistrado =
+      "http://192.168.1.9/api_plomero/restaurar/validar_correo.php";
+
+  //api para actualizar contraseña del usuario
+  static const updatePaswordUser =
+      "http://192.168.1.9/api_plomero/restaurar/actualizar_contrasena.php";
 }

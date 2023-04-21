@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:hidroapp/usuario/model/usuario.dart';
 import 'package:http/http.dart' as http;
 import 'package:art_sweetalert/art_sweetalert.dart';
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 
 class NuevoUsuario extends StatefulWidget {
   @override
@@ -115,6 +116,12 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
     }
   }
 
+//validar longitud de la contraseña
+  ///Passing a key to access the validate function
+  final GlobalKey<FlutterPwValidatorState> validatorKey =
+      GlobalKey<FlutterPwValidatorState>();
+  bool _isAcceptTermsAndConditions = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,6 +153,9 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                           key: formkey,
                           child: Column(
                             children: [
+                              const SizedBox(
+                                height: 15.0,
+                              ),
                               Padding(
                                 padding: EdgeInsets.all(10.0),
                                 child: TextFormField(
@@ -260,6 +270,32 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                                   ),
                                 ),
                               ),
+                              Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: new FlutterPwValidator(
+                                  key: validatorKey,
+                                  controller: passwordController,
+                                  minLength: 8,
+                                  uppercaseCharCount: 1,
+                                  numericCharCount: 2,
+                                  specialCharCount: 1,
+                                  normalCharCount: 4,
+                                  width: 400,
+                                  height: 150,
+                                  onSuccess: () {
+                                    print("Coincide");
+                                    setState(() {
+                                      _isAcceptTermsAndConditions = true;
+                                    });
+                                  },
+                                  onFail: () {
+                                    print("No coincide");
+                                    setState(() {
+                                      _isAcceptTermsAndConditions = false;
+                                    });
+                                  },
+                                ),
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
@@ -332,26 +368,30 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                                           ]),
                                     ),
                                   )),
-                              Material(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(30),
-                                child: InkWell(
-                                  onTap: () {
-                                    if (formkey.currentState!.validate()) {
-                                      validarCorreo();
-                                    }
-                                  },
-                                  borderRadius: BorderRadius.circular(30),
-                                  child: const Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 10, horizontal: 28),
-                                    child: Text(
-                                      'Aceptar y Registrar',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                              SizedBox(
+                                height: 40,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Color.fromARGB(255, 11, 0, 114),
+                                    onPrimary: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
+                                  ),
+                                  onPressed: _isAcceptTermsAndConditions
+                                      ? () {
+                                          if (formkey.currentState!
+                                              .validate()) {
+                                            validarCorreo();
+                                          }
+                                        }
+                                      : null,
+                                  child: Text(
+                                    'Aceptar y Registrar',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ),

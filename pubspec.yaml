@@ -17,6 +17,7 @@ dependencies:
   get: ^4.6.5
   art_sweetalert: ^0.0.5
   shared_preferences: ^2.1.0
+  flutter_pw_validator: ^1.5.0
 
 dev_dependencies:
   flutter_test:

@@ -41,8 +41,8 @@ class _MyAplicacion extends State<Principal> {
             IconButton(
               icon: Icon(Icons.logout_rounded),
               onPressed: () {
-                //Navigator.of(context).pushNamed('/one');
-                Navigator.pushReplacementNamed(context, '/two');
+                Navigator.of(context).pushNamed('/two');
+                //Navigator.pushReplacementNamed(context, '/two');
               },
             ),
           ],
