@@ -71,7 +71,8 @@ class _LoginageState extends State<MyAppForm> {
       emailController.clear();
       paswordController.clear();
     });
-    Navigator.of(context).pushNamed('/five');
+    Navigator.pushReplacementNamed(context, '/five');
+    //Navigator.of(context).pushNamed('/five');
   }
 
   @override
