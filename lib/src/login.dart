@@ -42,15 +42,15 @@ class _LoginageState extends State<MyAppForm> {
               artDialogArgs: ArtDialogArgs(
                   type: ArtSweetAlertType.success,
                   title: "Hola",
-                  text: "Bienvenido nuevamente a la aplicación"));
+                  text: "Bienvenido a la aplicación"));
 
           User usuarioInfo = User.fromJson(respuestaLogin["usuarioData"]);
 
           //guardar datos del usuario de forma local para usar las preferencias.
           await RecordarPrefeUs.guardarPreferenciaUsuario(usuarioInfo);
 
-          Future.delayed(Duration(microseconds: 2000), () {
-            Get.to(DashboardFragmentos());
+          Future.delayed(Duration(milliseconds: 1500), () {
+            Get.to(direccionIr());
           });
         } else {
           ArtSweetAlert.show(
@@ -59,12 +59,20 @@ class _LoginageState extends State<MyAppForm> {
                   type: ArtSweetAlertType.danger,
                   title: "Opss..",
                   text:
-                      "Credenciales Incorrectos. Por favor ingrese su correo o contraseña correctamente, intente nuevamente"));
+                      "Credenciales Incorrectos.\n Por favor ingrese su correo o contraseña correctamente. \n Intente nuevamente"));
         }
       }
     } catch (errorMsg) {
       print("Error :: " + errorMsg.toString());
     }
+  }
+
+  direccionIr() {
+    setState(() {
+      emailController.clear();
+      paswordController.clear();
+    });
+    Navigator.of(context).pushNamed('/five');
   }
 
   @override
@@ -118,7 +126,7 @@ class _LoginageState extends State<MyAppForm> {
                                   validator: (val) => val == ""
                                       ? "Por favor ingrese su correo electrónico"
                                       : null,
-                                  enableInteractiveSelection: false,
+                                  enableInteractiveSelection: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                       hintText: 'Correo electrónico',
@@ -138,7 +146,7 @@ class _LoginageState extends State<MyAppForm> {
                                     controller: paswordController,
                                     obscureText: OcultarPass.value,
                                     validator: (val) => val == ""
-                                        ? "Por favor inrese su contraseña"
+                                        ? "Por favor ingrese su contraseña"
                                         : null,
                                     decoration: InputDecoration(
                                         labelText: 'Contraseña',

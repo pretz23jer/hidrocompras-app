@@ -153,7 +153,7 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                                   validator: (val) => val == ""
                                       ? "Por favor ingrese su nombre"
                                       : null,
-                                  enableInteractiveSelection: false,
+                                  enableInteractiveSelection: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                       hintText: 'Nombres',
@@ -171,7 +171,7 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                                   validator: (val) => val == ""
                                       ? "Por favor ingrese su apellido"
                                       : null,
-                                  enableInteractiveSelection: false,
+                                  enableInteractiveSelection: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                       hintText: 'Apellidos',
@@ -189,7 +189,7 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                                       ? "Por favor ingrese su correo electrónico"
                                       : null,
                                   controller: emailController,
-                                  enableInteractiveSelection: false,
+                                  enableInteractiveSelection: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                       hintText: 'Correo electrónico',
@@ -207,7 +207,7 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                                       ? "Por favor ingrese su número de teléfono"
                                       : null,
                                   controller: telefonoController,
-                                  enableInteractiveSelection: false,
+                                  enableInteractiveSelection: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                       hintText: 'Teléfono',
@@ -356,6 +356,24 @@ class _NuevoUsuarioApp extends State<NuevoUsuario> {
                                   ),
                                 ),
                               ),
+                              Container(
+                                  padding: EdgeInsets.all(40),
+                                  child: Center(
+                                    child: RichText(
+                                      text: TextSpan(children: <TextSpan>[
+                                        TextSpan(
+                                            text: 'Inciar Sesión',
+                                            style: TextStyle(
+                                                color: Colors.blueAccent,
+                                                fontSize: 18),
+                                            recognizer: TapGestureRecognizer()
+                                              ..onTap = () {
+                                                Navigator.of(context)
+                                                    .pushNamed('/two');
+                                              }),
+                                      ]),
+                                    ),
+                                  )),
                             ],
                           )),
                     ],
