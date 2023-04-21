@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(Principal());
+//void main() => runApp(Principal());
 
 class Principal extends StatefulWidget {
   @override
@@ -29,10 +29,6 @@ class _MyAplicacion extends State<Principal> {
           //color de fondo
           backgroundColor: Color.fromARGB(255, 0, 5, 77),
           // Establecer la imagen de la pantalla frontal
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {},
-          ),
 
           // Coloca el icono detrás
           actions: <Widget>[
@@ -45,7 +41,8 @@ class _MyAplicacion extends State<Principal> {
             IconButton(
               icon: Icon(Icons.logout_rounded),
               onPressed: () {
-                Navigator.of(context).pushNamed('/one');
+                //Navigator.of(context).pushNamed('/two');
+                Navigator.pushReplacementNamed(context, '/two');
               },
             ),
           ],
