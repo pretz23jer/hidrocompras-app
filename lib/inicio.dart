@@ -15,6 +15,9 @@ class Inicio extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: EdgeInsets.all(45),
             child: Text(
